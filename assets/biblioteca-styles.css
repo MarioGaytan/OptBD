@@ -1,0 +1,105 @@
+/* Estilos para la página de Biblioteca */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a1f38;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.library-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.library-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.game-card {
+    background-color: #1f3d5e;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.game-card-content {
+    padding: 25px;
+}
+
+h3 {
+    margin-top: 0;
+    color: #4CAF50;
+    font-size: 1.5em;
+}
+
+.game-description {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    color: #b0bec5;
+}
+
+p {
+    margin: 8px 0;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ffb74d;
+    background-color: #2b4059;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.library-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.button, .button-logout {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #006f98;
+}
+
+.button-logout {
+    background-color: #e74c3c;
+}
+
+.button-logout:hover {
+    background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .game-card {
+        width: 100%;
+    }
+}

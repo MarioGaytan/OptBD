@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Xbox Library - Login/Registro</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Bienvenido a Xbox Library</h2>
+
+        <!-- Botones para alternar entre formularios -->
+        <div class="button-group">
+            <button id="login-btn" onclick="mostrarFormulario('login')">Iniciar Sesión</button>
+            <button id="register-btn" onclick="mostrarFormulario('register')">Registrarse</button>
+        </div>
+
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="login-form" class="hidden" action="login.php" method="POST">
+            <h3>Iniciar Sesión</h3>
+            <input type="text" name="nombre" placeholder="Usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <!-- Formulario de Registro -->
+        <form id="register-form" class="hidden" action="register.php" method="POST">
+            <h3>Registrarse</h3>
+            <input type="text" name="nombre" placeholder="Nuevo Usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+
+    <!-- Script para mostrar/ocultar formularios -->
+    <script>
+        function mostrarFormulario(formulario) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+
+            if (formulario === 'login') {
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            } else {
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
