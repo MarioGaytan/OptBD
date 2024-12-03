@@ -1,20 +1,22 @@
 <?php
-// conexion.php a
+// conexion.php
 
-$servername = getenv('MYSQLHOST'); // Nombre del host
-$username = getenv('MYSQLUSER'); // Usuario de la base de datos
-$password = getenv('MYSQLPASSWORD'); // Contraseña
-$database = getenv('MYSQLDATABASE'); // Nombre de la base de datos
-$port = getenv('MYSQLPORT'); // Puerto de conexión
+// Cargar las variables de entorno
+require_once __DIR__ . '/vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
-// Crear la conexión
-$conn = new mysqli($servername, $username, $password, $database, $port);
+// Configuración de la conexión
+$servername = $_ENV['SUPABASE_HOST'];
+$username = $_ENV['SUPABASE_USER'];
+$password = $_ENV['SUPABASE_PASSWORD'];
+$database = $_ENV['SUPABASE_DB'];
+
+// Crear la conexión con PostgreSQL
+$conn = pg_connect("host=$servername dbname=$database user=$username password=$password");
 
 // Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+if (!$conn) {
+    die("Conexión fallida: " . pg_last_error());
 }
-
-// Establecer el juego de caracteres (opcional pero recomendado)
-$conn->set_charset("utf8");
 ?>
